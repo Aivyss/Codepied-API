@@ -14,7 +14,7 @@ import com.codepied.api.api.board.domain.Thread as Thread;
 /**
  * @author Nairobi
  * @since 2023/02/08
- * @LastModifiedAt 2023/02/09
+ * @LastModifiedAt 2023/02/10
  */
 
 
@@ -28,16 +28,16 @@ class Thread (
     val id: Long,
 
     @Column(name = "TITLE", nullable = false, updatable = true, length = 128)
-    val title: String,
+    var title: String,
 
-    @Column(name = "UUID", nullable = false, updatable = false, length = 38)
+    @Column(name = "UUID", nullable = false, updatable = false)
     val uuid: UUID,
 
     @Column(name = "CONTENT", nullable = false, updatable = true, length = 3026)
-    val content: String,
+    var content: String,
 
     @Column(name = "ANONYMOUS", nullable = false, updatable = true)
-    val anonymous: Boolean,
+    var anonymous: Boolean,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "BOARD_KEY", nullable = false, updatable = false)

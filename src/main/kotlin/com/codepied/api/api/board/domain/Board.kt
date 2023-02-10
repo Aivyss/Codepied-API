@@ -12,7 +12,7 @@ import java.util.UUID
 /**
  * @author Nairobi
  * @since 2023/02/08
- * @LastModifiedAt 2023/02/09
+ * @LastModifiedAt 2023/02/10
  */
 
 
@@ -25,7 +25,7 @@ class Board (
     @Column(name =  "BOARD_KEY")
     val id :Long,
 
-    @Column(name = "UUID", nullable = false, length = 34)
+    @Column(name = "UUID", nullable = false)
     val uuid: UUID,
 
     @Column(name = "NAME", nullable = false, length = 64)

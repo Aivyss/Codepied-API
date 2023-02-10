@@ -8,7 +8,7 @@ import javax.persistence.*
 /**
  * @author Nairobi
  * @since 2023/02/08
- * @LastModifiedAt 2023/02/09
+ * @LastModifiedAt 2023/02/10
  */
 
 
@@ -22,14 +22,14 @@ class ThreadScore (
     val id: Long,
 
     @Column(name = "SCORE", nullable = false, updatable = true)
-    val score: Long,
+    var score: Long,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "THREAD_VIEW_KEY", nullable = false, updatable = true)
+    @JoinColumn(name = "THREAD_VIEW_KEY", nullable = false, updatable = false)
     val threadView: ThreadView,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "THREAD_VOTE_KEY", nullable = false, updatable = true)
+    @JoinColumn(name = "THREAD_VOTE_KEY", nullable = false, updatable = false)
     val threadVote: ThreadVote,
 
     @ManyToOne(fetch = FetchType.LAZY)

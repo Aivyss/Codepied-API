@@ -9,7 +9,7 @@ import javax.persistence.*
 /**
  * @author Nairobi
  * @since 2023/02/08
- * @LastModifiedAt 2023/02/09
+ * @LastModifiedAt 2023/02/10
  */
 
 
@@ -28,7 +28,7 @@ class BoardManager (
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_KEY", nullable = false, updatable = true)
-    val user: User,
+    var user: User,
 
     @Embedded
     val audit: Audit = Audit(),
