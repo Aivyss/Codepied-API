@@ -25,8 +25,8 @@ class BoardManager(
         val board: Board,
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "USER_KEY", nullable = false, updatable = true)
-        var user: User,
+        @JoinColumn(name = "USER_KEY", nullable = false, updatable = false)
+        val user: User,
 
         @Embedded
         val audit: Audit = Audit(),
