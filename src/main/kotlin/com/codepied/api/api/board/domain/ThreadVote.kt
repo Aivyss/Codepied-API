@@ -15,23 +15,23 @@ import javax.persistence.*
 @Entity
 @Table(name = "THREAD_VOTE")
 @EntityListeners(AuditingEntityListener::class)
-class ThreadVote (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "THREAD_VOTE_KEY")
-    val id: Long,
+class ThreadVote(
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "THREAD_VOTE_KEY")
+        val id: Long,
 
-    @Column(name = "RECOMMEND", nullable = false)
-    val recommend: Boolean,
+        @Column(name = "RECOMMEND", nullable = false, updatable = true)
+        var recommend: Boolean,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
-    val thread: Thread,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
+        val thread: Thread,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_KEY", nullable = false, updatable = false)
-    val user: User,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "USER_KEY", nullable = false, updatable = false)
+        val user: User,
 
-    @Embedded
-    val audit: Audit = Audit(),
+        @Embedded
+        val audit: Audit = Audit(),
 )

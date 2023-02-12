@@ -18,24 +18,27 @@ import javax.validation.constraints.NotBlank
 @Entity
 @Table(name = "THREAD_COMMENT")
 @EntityListeners(AuditingEntityListener::class)
-class ThreadComment (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "THREAD_COMMENT_KEY")
-    val id: Long,
+class ThreadComment(
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "THREAD_COMMENT_KEY")
+        val id: Long,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
-    val thread: Thread,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
+        val thread: Thread,
 
-    @OneToOne(optional = true)
-    @JoinColumn(name = "THREAD_COMMENT_KEY", nullable = true, updatable = false)
-    val parent: ThreadComment?,
+        @Column(name = "content", nullable = false, updatable = true)
+        var content: String,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_KEY", nullable = false, updatable = false)
-    val user: User,
+        @OneToOne(optional = true)
+        @JoinColumn(name = "THREAD_COMMENT_KEY", nullable = true, updatable = false)
+        val parent: ThreadComment?,
 
-    @Embedded
-    val audit: Audit = Audit(),
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "USER_KEY", nullable = false, updatable = false)
+        val user: User,
+
+        @Embedded
+        val audit: Audit = Audit(),
 )

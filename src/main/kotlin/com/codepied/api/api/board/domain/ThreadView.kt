@@ -15,20 +15,20 @@ import javax.persistence.*
 @Entity
 @Table(name = "THREAD_VIEW")
 @EntityListeners(AuditingEntityListener::class)
-class ThreadView (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "THREAD_VIEW_KEY")
-    val id: Long,
+class ThreadView(
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "THREAD_VIEW_KEY")
+        val id: Long,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
-    val thread: Thread,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
+        val thread: Thread,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_KEY", nullable = false, updatable = false)
-    val user: User,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "USER_KEY", nullable = false, updatable = false)
+        val user: User,
 
-    @Embedded
-    val audit: Audit = Audit(),
+        @Embedded
+        val audit: Audit = Audit(),
 )

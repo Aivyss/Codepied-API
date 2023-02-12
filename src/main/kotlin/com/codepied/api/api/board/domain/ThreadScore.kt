@@ -15,27 +15,19 @@ import javax.persistence.*
 @Entity
 @Table(name = "THREAD_SCORE")
 @EntityListeners(AuditingEntityListener::class)
-class ThreadScore (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "THREAD_SCORE_KEY")
-    val id: Long,
+class ThreadScore(
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "THREAD_KEY")
+        val id: Long,
 
-    @Column(name = "SCORE", nullable = false, updatable = true)
-    var score: Long,
+        @Column(name = "SCORE", nullable = false, updatable = true)
+        var score: Long,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "THREAD_VIEW_KEY", nullable = false, updatable = false)
-    val threadView: ThreadView,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
+        val thread: Thread,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "THREAD_VOTE_KEY", nullable = false, updatable = false)
-    val threadVote: ThreadVote,
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
-    val thread: Thread,
-
-    @Embedded
-    val audit: Audit = Audit(),
+        @Embedded
+        val audit: Audit = Audit(),
 )

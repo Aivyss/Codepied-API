@@ -16,24 +16,20 @@ import javax.persistence.*
 @Entity
 @Table(name = "THREAD_FILE")
 @EntityListeners(AuditingEntityListener::class)
-class ThreadFile (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "THREAD_FILE_KEY")
-    val id: Long,
+class ThreadFile(
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "THREAD_FILE_KEY")
+        val id: Long,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
-    val thread: Thread,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
+        val thread: Thread,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "FILE_KEY", nullable = false, updatable = false)
-    val codepiedFile: CodepiedFile,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "FILE_KEY", nullable = false, updatable = false)
+        val codepiedFile: CodepiedFile,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_KEY", nullable = false, updatable = false)
-    val user: User,
-
-    @Embedded
-    val audit: Audit = Audit(),
+        @Embedded
+        val audit: Audit = Audit(),
 )

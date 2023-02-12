@@ -16,20 +16,20 @@ import javax.persistence.*
 @Entity
 @Table(name = "BOARD_MANAGER")
 @EntityListeners(AuditingEntityListener::class)
-class BoardManager (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name =  "BOARD_MANAGER_KEY")
-    val id :Long,
+class BoardManager(
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "BOARD_MANAGER_KEY")
+        val id: Long,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "BOARD_KEY", nullable = false, updatable = false)
-    val board: Board,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "BOARD_KEY", nullable = false, updatable = false)
+        val board: Board,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_KEY", nullable = false, updatable = true)
-    var user: User,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "USER_KEY", nullable = false, updatable = true)
+        var user: User,
 
-    @Embedded
-    val audit: Audit = Audit(),
+        @Embedded
+        val audit: Audit = Audit(),
 )

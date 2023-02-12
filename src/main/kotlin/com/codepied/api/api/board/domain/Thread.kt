@@ -21,45 +21,47 @@ import com.codepied.api.api.board.domain.Thread as Thread;
 @Entity
 @Table(name = "THREAD")
 @EntityListeners(AuditingEntityListener::class)
-class Thread (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "THREAD_KEY")
-    val id: Long,
+class Thread(
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "THREAD_KEY")
+        val id: Long,
 
-    @Column(name = "TITLE", nullable = false, updatable = true, length = 128)
-    var title: String,
+        @Column(name = "TITLE", nullable = false, updatable = true, length = 128)
+        var title: String,
 
-    @Column(name = "UUID", nullable = false, updatable = false)
-    val uuid: UUID,
+        @Column(name = "UUID", nullable = false, updatable = false)
+        val uuid: UUID,
 
-    @Column(name = "CONTENT", nullable = false, updatable = true, length = 3026)
-    var content: String,
+        @Column(name = "CONTENT", nullable = false, updatable = true, length = 3026)
+        var content: String,
 
-    @Column(name = "ANONYMOUS", nullable = false, updatable = true)
-    var anonymous: Boolean,
+        @Column(name = "ANONYMOUS", nullable = false, updatable = false)
+        val anonymous: Boolean,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "BOARD_KEY", nullable = false, updatable = false)
-    val board: Board,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "BOARD_KEY", nullable = false, updatable = false)
+        val board: Board,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_KEY", nullable = false, updatable = false)
-    val user: User,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "USER_KEY", nullable = false, updatable = false)
+        val user: User,
 
-    @Embedded
-    val audit: Audit = Audit(),
+        @Embedded
+        val audit: Audit = Audit(),
 )
 
 interface ThreadRepository : JpaRepository<Thread, Long> {
 
 }
+
 object ThreadFactory {
-    fun create(title: String,
-               content: String,
-               anonymous:Boolean,
-               board: Board,
-               user: User,
+    fun create(
+            title: String,
+            content: String,
+            anonymous: Boolean,
+            board: Board,
+            user: User,
     ): Thread {
         return Thread(
                 id = 0L,

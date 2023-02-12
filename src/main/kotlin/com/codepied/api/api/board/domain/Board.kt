@@ -19,26 +19,19 @@ import java.util.UUID
 @Entity
 @Table(name = "BOARD")
 @EntityListeners(AuditingEntityListener::class)
-class Board (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name =  "BOARD_KEY")
-    val id :Long,
+class Board(
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "BOARD_KEY")
+        val id: Long,
 
-    @Column(name = "UUID", nullable = false)
-    val uuid: UUID,
+        @Column(name = "UUID", nullable = false, updatable = false)
+        val uuid: UUID,
 
-    @Column(name = "NAME", nullable = false, length = 64)
-    val name: String,
+        @Column(name = "NAME", nullable = false, length = 64)
+        val name: String,
 
-    @Embedded
-    val audit: Audit = Audit(),
+        @Embedded
+        val audit: Audit = Audit(),
+)
 
-) {
-    @OneToMany(mappedBy = "board", cascade = [CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH])
-    val thread: MutableList<Thread> = mutableListOf()
-}
-
-interface BoardRepository : JpaRepository<Board, Long> {
-
-}
