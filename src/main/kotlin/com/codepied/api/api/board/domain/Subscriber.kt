@@ -9,8 +9,6 @@ import javax.persistence.*
  * @since 2023/02/08
  * @LastModifiedAt 2023/02/09
  */
-
-
 @Entity
 @Table(name = "SUBSCRIBER")
 class Subscriber(

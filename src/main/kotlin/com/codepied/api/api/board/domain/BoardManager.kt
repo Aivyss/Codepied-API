@@ -11,8 +11,6 @@ import javax.persistence.*
  * @since 2023/02/08
  * @LastModifiedAt 2023/02/10
  */
-
-
 @Entity
 @Table(name = "BOARD_MANAGER")
 @EntityListeners(AuditingEntityListener::class)

@@ -13,8 +13,6 @@ import javax.validation.constraints.NotBlank
  * @since 2023/02/08
  * @LastModifiedAt 2023/02/09
  */
-
-
 @Entity
 @Table(name = "THREAD_COMMENT")
 @EntityListeners(AuditingEntityListener::class)
@@ -28,7 +26,7 @@ class ThreadComment(
         @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
         val thread: Thread,
 
-        @Column(name = "content", nullable = false, updatable = true)
+        @Column(name = "CONTENT", nullable = false, updatable = true)
         var content: String,
 
         @OneToOne(optional = true)

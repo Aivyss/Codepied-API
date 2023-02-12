@@ -14,8 +14,6 @@ import java.util.UUID
  * @since 2023/02/08
  * @LastModifiedAt 2023/02/10
  */
-
-
 @Entity
 @Table(name = "BOARD")
 @EntityListeners(AuditingEntityListener::class)
