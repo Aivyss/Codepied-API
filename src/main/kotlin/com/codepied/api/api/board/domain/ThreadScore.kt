@@ -9,7 +9,7 @@ import com.codepied.api.api.board.domain.Thread as Thread;
 /**
  * @author Nairobi
  * @since 2023/02/08
- * @LastModifiedAt 2023/02/10
+ * @LastModifiedAt 2023/02/13
  */
 @Entity
 @Table(name = "THREAD_SCORE")
