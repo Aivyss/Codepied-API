@@ -1,28 +1,34 @@
-package com.codepied.api.api.board.domain
+package com.codepied.api.thread.domain
 
 import com.codepied.api.api.domain.Audit
 import com.codepied.api.user.domain.User
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import javax.persistence.*
 
-
 /**
  * @author Nairobi
  * @since 2023/02/08
- * @LastModifiedAt 2023/02/10
+ * @LastModifiedAt 2023/02/09
  */
 @Entity
-@Table(name = "BOARD_MANAGER")
+@Table(name = "THREAD_COMMENT")
 @EntityListeners(AuditingEntityListener::class)
-class BoardManager(
+class ThreadComment(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "BOARD_MANAGER_KEY")
+        @Column(name = "THREAD_COMMENT_KEY")
         val id: Long,
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "BOARD_KEY", nullable = false, updatable = false)
-        val board: Board,
+        @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
+        val thread: Thread,
+
+        @Column(name = "CONTENT", nullable = false, updatable = true)
+        var content: String,
+
+        @OneToOne(optional = true)
+        @JoinColumn(name = "THREAD_COMMENT_KEY", nullable = true, updatable = false)
+        val parent: ThreadComment?,
 
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "USER_KEY", nullable = false, updatable = false)

@@ -1,4 +1,4 @@
-package com.codepied.api.api.board.domain
+package com.codepied.api.thread.domain
 
 import com.codepied.api.api.domain.Audit
 import com.codepied.api.user.domain.User
@@ -8,23 +8,27 @@ import javax.persistence.*
 /**
  * @author Nairobi
  * @since 2023/02/08
- * @LastModifiedAt 2023/02/10
+ * @LastModifiedAt 2023/02/09
  */
 @Entity
-@Table(name = "THREAD_SCORE")
+@Table(name = "THREAD_VOTE")
 @EntityListeners(AuditingEntityListener::class)
-class ThreadScore(
+class ThreadVote(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "THREAD_KEY")
+        @Column(name = "THREAD_VOTE_KEY")
         val id: Long,
 
-        @Column(name = "SCORE", nullable = false, updatable = true)
-        var score: Long,
+        @Column(name = "RECOMMEND", nullable = false, updatable = true)
+        var recommend: Boolean,
 
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
         val thread: Thread,
+
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "USER_KEY", nullable = false, updatable = false)
+        val user: User,
 
         @Embedded
         val audit: Audit = Audit(),

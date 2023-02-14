@@ -1,8 +1,7 @@
-package com.codepied.api.api.board.domain
+package com.codepied.api.thread.domain
 
 import com.codepied.api.api.domain.Audit
 import com.codepied.api.file.domain.CodepiedFile
-import com.codepied.api.user.domain.User
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import javax.persistence.*
 

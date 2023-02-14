@@ -1,30 +1,28 @@
-package com.codepied.api.api.board.domain
+package com.codepied.api.board.domain
 
 import com.codepied.api.api.domain.Audit
 import com.codepied.api.user.domain.User
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import javax.persistence.*
 
+
 /**
  * @author Nairobi
  * @since 2023/02/08
- * @LastModifiedAt 2023/02/09
+ * @LastModifiedAt 2023/02/10
  */
 @Entity
-@Table(name = "THREAD_VOTE")
+@Table(name = "BOARD_MANAGER")
 @EntityListeners(AuditingEntityListener::class)
-class ThreadVote(
+class BoardManager(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "THREAD_VOTE_KEY")
+        @Column(name = "BOARD_MANAGER_KEY")
         val id: Long,
 
-        @Column(name = "RECOMMEND", nullable = false, updatable = true)
-        var recommend: Boolean,
-
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "THREAD_KEY", nullable = false, updatable = false)
-        val thread: Thread,
+        @JoinColumn(name = "BOARD_KEY", nullable = false, updatable = false)
+        val board: Board,
 
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "USER_KEY", nullable = false, updatable = false)

@@ -1,14 +1,13 @@
-package com.codepied.api.api.board.domain
+package com.codepied.api.thread.domain
 
 import com.codepied.api.api.domain.Audit
+import com.codepied.api.board.domain.Board
 import com.codepied.api.user.domain.User
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import org.springframework.data.jpa.repository.JpaRepository
 import java.util.*
 import javax.persistence.*
-import javax.validation.constraints.NotBlank
-import com.codepied.api.api.board.domain.Thread as Thread;
 
 
 /**
@@ -50,7 +49,6 @@ class Thread(
 )
 
 interface ThreadRepository : JpaRepository<Thread, Long> {
-
 }
 
 object ThreadFactory {

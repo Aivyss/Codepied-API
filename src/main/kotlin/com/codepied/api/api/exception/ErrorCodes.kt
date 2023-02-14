@@ -19,6 +19,7 @@ enum class BusinessErrorCode : CodeEnum {
     INVALID_ACCESS_TOKEN,
     DUPLICATED_EMAIL_SIGNUP,
     DUPLICATED_NICKNAME,
+    DUPLICATED_BOARD_NAME,
     NOT_AUTHORIZED_EMAIL_USER,
     NOT_ACCESSIBLE_SOCIAL_USER_GOOGLE,
     NOT_ACCESSIBLE_SOCIAL_USER_NAVER,
@@ -48,6 +49,8 @@ enum class ParameterErrorCode : CodeEnum {
     NOT_BLANK,
     NICKNAME_SIZE,
     INVALID_NICKNAME,
+    NOT_NULL,
+    INVALID_CHARACTER
     ;
 
     override fun getCodeValue(): String = "EXCEPTION.PARAMETERS.${name}"
