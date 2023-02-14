@@ -7,7 +7,7 @@ import javax.persistence.*
 /**
  * @author Nairobi
  * @since 2023/02/08
- * @LastModifiedAt 2023/02/10
+ * @LastModifiedAt 2023/02/13
  */
 @Entity
 @Table(name = "THREAD_SCORE")
