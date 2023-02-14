@@ -1,23 +1,20 @@
-package com.codepied.api.api.board.domain
+package com.codepied.api.board.domain
 
 import com.codepied.api.api.domain.Audit
 import com.codepied.api.user.domain.User
-import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import javax.persistence.*
-
 
 /**
  * @author Nairobi
  * @since 2023/02/08
- * @LastModifiedAt 2023/02/10
+ * @LastModifiedAt 2023/02/09
  */
 @Entity
-@Table(name = "BOARD_MANAGER")
-@EntityListeners(AuditingEntityListener::class)
-class BoardManager(
+@Table(name = "SUBSCRIBER")
+class Subscriber(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "BOARD_MANAGER_KEY")
+        @Column(name = "SUBSCRIBER_KEY")
         val id: Long,
 
         @ManyToOne(fetch = FetchType.LAZY)
