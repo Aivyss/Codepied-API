@@ -1,4 +1,4 @@
-package com.codepied.api.board.domain
+package com.codepied.api.board
 
 import com.codepied.api.api.domain.Audit
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
