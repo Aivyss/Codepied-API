@@ -20,8 +20,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 
 /**
- *
- *
  * @author junyeong.jo .
  * @since 2023-02-15
  */
