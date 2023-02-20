@@ -3,8 +3,8 @@ package com.codepied.api.board.application
 import com.codepied.api.api.exception.BusinessErrorCode
 import com.codepied.api.api.exception.CodepiedBaseException
 import com.codepied.api.api.http.RequestContext
-import com.codepied.api.board.Board
-import com.codepied.api.board.BoardRepository
+import com.codepied.api.board.domain.Board
+import com.codepied.api.board.domain.BoardRepository
 import com.codepied.api.board.dto.BoardCreate
 import com.codepied.api.test.AbstractServiceTest
 import org.assertj.core.api.Assertions

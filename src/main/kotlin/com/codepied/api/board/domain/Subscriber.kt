@@ -1,4 +1,4 @@
-package com.codepied.api.board
+package com.codepied.api.board.domain
 
 import com.codepied.api.api.domain.Audit
 import com.codepied.api.user.domain.User

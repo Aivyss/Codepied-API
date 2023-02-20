@@ -1,12 +1,9 @@
-package com.codepied.api.board
+package com.codepied.api.board.domain
 
 import com.codepied.api.api.domain.Audit
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import org.springframework.data.jpa.repository.JpaRepository
 import javax.persistence.*
-import com.codepied.api.api.exception.BusinessErrorCode
-import com.codepied.api.api.exception.InvalidRequestExceptionBuilder
-import com.codepied.api.user.domain.User
 import java.util.UUID
 
 

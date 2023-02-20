@@ -1,7 +1,7 @@
 package com.codepied.api.board.application
 
-import com.codepied.api.board.BoardFactory
-import com.codepied.api.board.BoardRepository
+import com.codepied.api.board.domain.BoardFactory
+import com.codepied.api.board.domain.BoardRepository
 import com.codepied.api.board.dto.BoardCreate
 import com.codepied.api.api.exception.BusinessErrorCode
 import com.codepied.api.api.exception.InvalidRequestExceptionBuilder.invalidRequest
