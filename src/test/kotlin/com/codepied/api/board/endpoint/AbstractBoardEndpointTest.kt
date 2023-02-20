@@ -35,8 +35,8 @@ import org.springframework.web.context.WebApplicationContext
 /**
  * Spring Rest Doc 적용 및 mockMvc Setup을 위한 추상클래스
  *
- * @author Aivyss
- * @since 2022/12/22
+ * @author junyeong.jo
+ * @since 2023-02-15
  */
 @ActiveProfiles("test")
 @ImportAutoConfiguration(MessageSourceAutoConfiguration::class)

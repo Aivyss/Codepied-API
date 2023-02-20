@@ -16,6 +16,7 @@ import org.mockito.ArgumentMatchers.anyString
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
+import org.mockito.kotlin.any
 import org.mockito.kotlin.doReturn
 
 /**
@@ -63,10 +64,17 @@ internal class BoardServiceTest : AbstractServiceTest() {
     @Test
     fun `게시판 생성 성공` () {
         // * given
-        val boardTitle = "게시판 제목";
-        val boardCreate = BoardCreate(boardTitle);
+        val board = Mockito.mock(Board::class.java)
+        val boardTitle = "게시판 제목"
+        val boardCreate = BoardCreate(boardTitle)
+        doReturn(board).`when`(boardRepository).save(any())
+        doReturn(" 게시판 제목").`when`(board).name
 
         // * when
-        service.createBoard(boardCreate)
+        val result = service.createBoard(boardCreate)
+
+        // * then
+        Assertions.assertThat(result).isNotNull
+
     }
 }
