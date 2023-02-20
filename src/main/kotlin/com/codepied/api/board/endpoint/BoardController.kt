@@ -19,5 +19,5 @@ class BoardController(private val service: BoardService) {
     @PostMapping
     fun createBoard(
             @RequestBody @Valid request: BoardCreate
-    ) = SuccessResponse(service.createBoard(request), HttpStatus.CREATED)
+    ) = service.createBoard(request).run { SuccessResponse(data = true, HttpStatus.CREATED) }
 }
