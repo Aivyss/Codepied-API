@@ -13,7 +13,7 @@ import org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document
 import org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath
 import org.springframework.restdocs.payload.PayloadDocumentation.requestFields
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 /**
@@ -26,34 +26,30 @@ class BoardControllerTest : AbstractBoardEndpointTest("/api/board") {
     fun `게시판 생성 성공 `() {
         // * given
         val boardCreate = BoardCreate(
-                name = "board name"
+                name = "name"
         )
         doReturn(boardCreate).`when`(boardService).createBoard(any())
 
         // * when
         val perform = mockMvc.perform(
-                MockMvcRequestBuilders.post(uri)
-                        .header("Authorization", "Bearer $accessToken")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .accept(MediaType.APPLICATION_JSON)
-                        .content("""{ "name": "board name" }
-            """.trimMargin()))
+            post(uri)
+                .header("Authorization", "Bearer $accessToken")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(""" { "name": "name" } """.trimMargin()))
 
         // * then
         perform.andExpect(status().isCreated)
-                .andDo(document(DocumentEnum.BOARD_CREATE.name,
-                        requestHeaders(
-                                headerWithName("Authorization").description("Bearer \${accessToken}"),
-                        ),
-                        requestFields(
-                                fieldWithPath("name").type("String").description("게시판 이름 / 공백불가 / 특수문자 불가"),
-                        ),
-                        RestDocStore.responseSnippet(
-                                fieldWithPath("data").type("boardCreate").description("boardCreate"),
-                                fieldWithPath("data.name").type("String").description("board name"),
-                        )
-                )
-                )
-
+            .andDo(document(DocumentEnum.BOARD_CREATE.name,
+                requestHeaders(
+                    headerWithName("Authorization").description("Bearer \${accessToken}"),
+                ),
+                requestFields(
+                    fieldWithPath("name").type("String").description("게시판 이름 / 공백불가 / 특수문자 불가"),
+                ),
+                RestDocStore.responseSnippet(
+                    fieldWithPath("data").type("boardCreate").description("boardCreate"),
+                    fieldWithPath("data.name").type("String").description("board name"),
+                )))
     }
 }
