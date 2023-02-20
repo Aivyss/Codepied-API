@@ -3,7 +3,7 @@
 :source-highlighter: highlightjs
 
 // -------------------------------
-== Email User Signup
+== Board Create
 
 === Raw Request
 include::{snippets}/BOARD_CREATE/http-request.adoc[]
