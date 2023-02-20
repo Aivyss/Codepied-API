@@ -36,7 +36,7 @@ class BoardControllerTest : AbstractBoardEndpointTest("/api/board") {
                         .header("Authorization", "Bearer $accessToken")
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON)
-                        .content("""{ "name": "name" }
+                        .content("""{ "name": "board name" }
             """.trimMargin()))
 
         // * then
