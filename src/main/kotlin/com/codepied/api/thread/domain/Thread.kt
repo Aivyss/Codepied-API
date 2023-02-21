@@ -1,7 +1,7 @@
 package com.codepied.api.thread.domain
 
 import com.codepied.api.api.domain.Audit
-import com.codepied.api.board.Board
+import com.codepied.api.board.domain.Board
 import com.codepied.api.user.domain.User
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
