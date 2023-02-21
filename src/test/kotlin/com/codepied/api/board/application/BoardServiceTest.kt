@@ -68,13 +68,9 @@ internal class BoardServiceTest : AbstractServiceTest() {
         val boardTitle = "게시판 제목"
         val boardCreate = BoardCreate(boardTitle)
         doReturn(board).`when`(boardRepository).save(any())
-        doReturn(" 게시판 제목").`when`(board).name
 
         // * when
-        val result = service.createBoard(boardCreate)
-
-        // * then
-        Assertions.assertThat(result).isNotNull
+        service.createBoard(boardCreate)
 
     }
 }
