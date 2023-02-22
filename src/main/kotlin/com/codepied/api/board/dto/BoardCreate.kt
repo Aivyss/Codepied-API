@@ -8,7 +8,9 @@ import javax.validation.constraints.Pattern
  * @since 2023-02-13
  */
 data class BoardCreate(
-        @field:NotBlank(message = "EXCEPTION.PARAMETERS.NOT_BLANK")
-        @field:Pattern(regexp = "[0-9|a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힝|]*", message = "EXCEPTION.PARAMETERS.INVALID_CHARACTER")
-        val name: String,
+    @field:NotBlank(message = "EXCEPTION.PARAMETERS.NOT_BLANK")
+    @field:Pattern(
+        regexp = "[0-9|a-zA-Zㄱ-ㅎㅏ-ㅣ가-힝]*",
+        message = "EXCEPTION.PARAMETERS.INVALID_CHARACTER")
+    val name: String,
 )

@@ -1,0 +1,19 @@
+:toc: left
+:toclevels: 2
+:source-highlighter: highlightjs
+
+// -------------------------------
+== Board Create
+
+=== Raw Request
+include::{snippets}/BOARD_CREATE/http-request.adoc[]
+
+=== Request Body
+include::{snippets}/BOARD_CREATE/request-fields.adoc[]
+include::{snippets}/BOARD_CREATE/request-body.adoc[]
+
+=== Response
+include::{snippets}/BOARD_CREATE/response-fields.adoc[]
+include::{snippets}/BOARD_CREATE/http-response.adoc[]
+// -------------------------------
+

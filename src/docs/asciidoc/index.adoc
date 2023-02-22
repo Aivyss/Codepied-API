@@ -10,3 +10,6 @@ link:user-info.html[user info api]
 
 == User Integration API
 link:user-integration.html[user integration api]
+
+== Board API
+link:board.html[board api]

@@ -12,5 +12,6 @@ enum class DocumentEnum {
     RETRIEVE_USER_INTEGRATIONS,
     CHANGE_PROFILE,
     REFRESH_TOKENS,
+    BOARD_CREATE
     ;
 }
